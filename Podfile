@@ -6,6 +6,10 @@ target 'chariot' do
   use_frameworks!
 
   # Pods for chariot
+  pod 'Firebase'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI'
+  pod 'FirebaseUI/Google'
 end
