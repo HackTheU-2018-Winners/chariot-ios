@@ -14,6 +14,8 @@
 		AB076F202144574E001D8F1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB076F1F2144574E001D8F1E /* Assets.xcassets */; };
 		AB076F232144574E001D8F1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB076F212144574E001D8F1E /* LaunchScreen.storyboard */; };
 		AB076F2E2144814F001D8F1E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB076F2D2144814F001D8F1E /* LoginViewController.swift */; };
+		AB58B99C2145480D00CC1755 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58B99B2145480D00CC1755 /* ProfileViewController.swift */; };
+		AB58B99E214556C000CC1755 /* SmallCapsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58B99D214556C000CC1755 /* SmallCapsLabel.swift */; };
 		ABAF6763214483A000338EA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABAF6762214483A000338EA2 /* GoogleService-Info.plist */; };
 		EB2D70CB21451DC1005D10B0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D70CA21451DC1005D10B0 /* FeedViewController.swift */; };
 		EB2D70CD21452200005D10B0 /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D70CC21452200005D10B0 /* DonationViewController.swift */; };
@@ -31,6 +33,8 @@
 		AB076F222144574E001D8F1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB076F242144574E001D8F1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB076F2D2144814F001D8F1E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AB58B99B2145480D00CC1755 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AB58B99D214556C000CC1755 /* SmallCapsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCapsLabel.swift; sourceTree = "<group>"; };
 		ABAF6762214483A000338EA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0E03CC07F437E9F0BED7484 /* Pods-chariot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chariot.release.xcconfig"; path = "Pods/Target Support Files/Pods-chariot/Pods-chariot.release.xcconfig"; sourceTree = "<group>"; };
 		EB2D70CA21451DC1005D10B0 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 				ABAF6764214483CB00338EA2 /* Resources */,
 				AB076F2A2144805A001D8F1E /* ViewControllers */,
 				AB076F182144574C001D8F1E /* AppDelegate.swift */,
+				AB58B99D214556C000CC1755 /* SmallCapsLabel.swift */,
 			);
 			path = chariot;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 				AB076F1A2144574C001D8F1E /* HomeViewController.swift */,
 				AB076F2D2144814F001D8F1E /* LoginViewController.swift */,
 				EB2D70CA21451DC1005D10B0 /* FeedViewController.swift */,
+				AB58B99B2145480D00CC1755 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -315,8 +321,10 @@
 				EB2D70CF21452500005D10B0 /* MapViewController.swift in Sources */,
 				AB076F1B2144574C001D8F1E /* HomeViewController.swift in Sources */,
 				EB2D70CB21451DC1005D10B0 /* FeedViewController.swift in Sources */,
+				AB58B99C2145480D00CC1755 /* ProfileViewController.swift in Sources */,
 				EB2D70CD21452200005D10B0 /* DonationViewController.swift in Sources */,
 				AB076F192144574C001D8F1E /* AppDelegate.swift in Sources */,
+				AB58B99E214556C000CC1755 /* SmallCapsLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

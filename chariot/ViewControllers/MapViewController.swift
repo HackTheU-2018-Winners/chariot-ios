@@ -61,6 +61,7 @@ class MapViewController: UIViewController {
         }
 
         locationManager.delegate = self
+        mapView.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
@@ -91,3 +92,29 @@ extension MapViewController: CLLocationManagerDelegate {
         print("location fail \(error)")
     }
 }
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let bin = annotation as? DropoffBin else { return nil }
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "pin")
+
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: bin, reuseIdentifier: "pin")
+        } else {
+            annotationView?.annotation = bin
+        }
+
+        annotationView?.image = UIImage.init(named: "binIcon")
+
+        let pinImage = UIImage(named: "binIcon")
+        let size = CGSize(width: 30, height: 30)
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        annotationView?.image = resizedImage
+
+        return annotationView
+    }
+}
+
