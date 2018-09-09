@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             ])
 
             let homeViewController = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(withIdentifier: "home")
+                .instantiateViewController(withIdentifier: "tabs")
             present(homeViewController, animated: true)
 
         case (_, .some(let error)):
