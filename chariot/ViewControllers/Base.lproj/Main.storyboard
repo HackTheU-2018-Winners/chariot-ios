@@ -71,13 +71,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VvO-nX-uYw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" id="aFe-W8-iKu"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="iconTabBarFeed" selectedImage="iconTabBarFeed" id="aFe-W8-iKu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6p-zR-ht2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1993" y="-474"/>
         </scene>
-        <!--Item 2-->
+        <!--Discover-->
         <scene sceneID="w37-nH-fGX">
             <objects>
                 <viewController id="GOA-zo-lWV" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R8m-Bj-qSe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="9gV-HJ-YrF"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="iconTabBarDiscover" id="9gV-HJ-YrF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pk4-6U-0P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +103,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8OT-Sa-eEk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Donate" id="hxI-cP-U3E"/>
+                    <tabBarItem key="tabBarItem" title="Donate" image="iconTabBarDonate" id="hxI-cP-U3E"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VK-ba-1wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +130,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q1W-8r-RYd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="SEM-sR-fnk"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="iconTabBarMap" id="SEM-sR-fnk"/>
                     <connections>
                         <outlet property="mapView" destination="pPN-GV-TDi" id="X2x-Nr-ChJ"/>
                     </connections>
@@ -230,7 +230,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uCw-rw-WCw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="RXJ-NV-7hd"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="iconTabBarProfile" id="RXJ-NV-7hd"/>
                     <connections>
                         <outlet property="profileImageView" destination="dYF-WO-pi8" id="enc-K2-nlr"/>
                     </connections>
@@ -263,5 +263,10 @@
     </scenes>
     <resources>
         <image name="chariot" width="720" height="1337"/>
+        <image name="iconTabBarDiscover" width="18" height="18"/>
+        <image name="iconTabBarDonate" width="18" height="18"/>
+        <image name="iconTabBarFeed" width="18" height="18"/>
+        <image name="iconTabBarMap" width="18" height="18"/>
+        <image name="iconTabBarProfile" width="18" height="18"/>
     </resources>
 </document>
