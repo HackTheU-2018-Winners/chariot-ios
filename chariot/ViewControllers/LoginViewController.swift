@@ -13,6 +13,14 @@ import FirebaseUI
 
 class LoginViewController: UIViewController, FUIAuthDelegate {
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if Auth.auth().currentUser != nil {
+            navigateToTabs()
+        }
+    }
+
     @IBAction func loginTapped(_ sender: Any) {
         let authUI = FUIAuth.defaultAuthUI()!
         authUI.delegate = self
@@ -28,9 +36,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 "name": result.user.displayName ?? ""
             ])
 
-            let homeViewController = UIStoryboard(name: "Main", bundle: nil)
-                .instantiateViewController(withIdentifier: "tabs")
-            present(homeViewController, animated: true)
+            navigateToTabs()
 
         case (_, .some(let error)):
             guard (error as NSError).code != 1 else {
@@ -45,5 +51,11 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
 
         default: break
         }
+    }
+
+    func navigateToTabs() {
+        let homeViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "tabs")
+        present(homeViewController, animated: true)
     }
 }
