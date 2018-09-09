@@ -16,9 +16,9 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if Auth.auth().currentUser != nil {
-            navigateToTabs()
-        }
+//        if Auth.auth().currentUser != nil {
+//            navigateToTabs()
+//        }
     }
 
     @IBAction func loginTapped(_ sender: Any) {
