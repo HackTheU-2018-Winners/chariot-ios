@@ -7,24 +7,87 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+import Firebase
+
+class DropoffBin: NSObject, MKAnnotation {
+    private let latitude: CLLocationDegrees
+    private let longitude: CLLocationDegrees
+    let title: String?
+    let subtitle: String?
+
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
+    init(latitude: CLLocationDegrees,
+         longitude: CLLocationDegrees,
+         title: String,
+         subtitle: String) {
+
+        self.latitude = latitude
+        self.longitude = longitude
+        self.title = title
+        self.subtitle = subtitle
+    }
+}
 
 class MapViewController: UIViewController {
+    @IBOutlet weak var mapView: MKMapView!
+
+    private let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        Firestore.firestore().collection("Bins").addSnapshotListener { [weak self] snapshot, error in
+            guard let snapshot = snapshot, error == nil else {
+                print("bin snapshot error \(String(describing: error))")
+                return
+            }
+
+            let annotations = snapshot.documents.map { thing -> DropoffBin in
+                let data = thing.data()
+                let point = data["Location"] as! GeoPoint
+                return DropoffBin(latitude: point.latitude,
+                                  longitude: point.longitude,
+                                  title: data["Name"] as! String,
+                                  subtitle: "Needs: \(data["Needs"] as! String)")
+            }
+
+            self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
+            self?.mapView.addAnnotations(annotations)
+        }
+
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
-    
 
-    /*
-    // MARK: - Navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
-    */
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else { return }
+
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let region = MKCoordinateRegion(center: location.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("location fail \(error)")
+    }
 }
