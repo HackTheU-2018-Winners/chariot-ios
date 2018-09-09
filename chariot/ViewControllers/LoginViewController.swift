@@ -18,10 +18,6 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         authUI.delegate = self
         authUI.providers = [FUIGoogleAuth()]
         present(authUI.authViewController(), animated: true)
-
-        let homeViewController = UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "home")
-        navigationController?.setViewControllers([homeViewController], animated: true)
     }
 
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
@@ -32,7 +28,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 "name": result.user.displayName ?? ""
             ])
 
+            let homeViewController = UIStoryboard(name: "Main", bundle: nil)
+                .instantiateViewController(withIdentifier: "home")
+            present(homeViewController, animated: true)
+
         case (_, .some(let error)):
+            guard (error as NSError).code != 1 else {
+                return
+            }
+
             let alert = UIAlertController(title: "Error",
                                           message: error.localizedDescription,
                                           preferredStyle: .alert)
